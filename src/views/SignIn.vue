@@ -16,7 +16,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, SetupContext } from '@vue/composition-api';
+import {
+  defineComponent, reactive, SetupContext,
+} from '@vue/composition-api';
 import { signIn as signInService } from '@/gateways';
 import { setAuthDataToLoalStorage } from '@/helpers/auth';
 
