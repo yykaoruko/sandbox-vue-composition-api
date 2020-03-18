@@ -24,14 +24,14 @@ import { defineComponent, reactive, SetupContext } from '@vue/composition-api';
 import { register as registerService } from '@/gateways';
 
 const SignUp = defineComponent({
-  setup() {
+  setup(_: never, context: SetupContext) {
     const user = reactive({
       username: '',
       email: '',
       password: '',
     });
 
-    const onClick = (_: never, context: SetupContext) => {
+    const onClick = () => {
       const params = {
         user,
       };
