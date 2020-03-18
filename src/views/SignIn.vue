@@ -18,6 +18,7 @@
 <script lang="ts">
 import { defineComponent, reactive, SetupContext } from '@vue/composition-api';
 import { signIn as signInService } from '@/gateways';
+import { setAuthDataToLoalStorage } from '@/helpers/auth';
 
 const SignIn = defineComponent({
   setup(_: never, context: SetupContext) {
@@ -33,6 +34,7 @@ const SignIn = defineComponent({
       signInService(params).then(async (response: Response) => {
         if (response.ok && response.body) {
           const data = await response.json();
+          setAuthDataToLoalStorage(data.user);
           context.root.$store.commit('user/set', data.user);
           context.root.$router.push('/');
         } else if (response.body) {

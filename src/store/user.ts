@@ -1,3 +1,5 @@
+type Todo = any; // eslint-disable-line @typescript-eslint/no-explicit-any
+
 export const user = {
   namespaced: true,
 
@@ -13,16 +15,16 @@ export const user = {
   }),
 
   mutations: {
-    set: (state, data) => {
-      state.username = data.username;
-      state.email = data.email;
-      state.token = data.token;
-      state.createdAt = data.usecreatedAtrname;
-      state.updatedAt = data.updatedAt;
-      state.bio = data.bio;
-      state.image = data.image;
+    set: (state: Todo, data: Todo) => {
+      state.username = data.username || null;
+      state.email = data.email || null;
+      state.token = data.token || null;
+      state.createdAt = data.usecreatedAtrname || null;
+      state.updatedAt = data.updatedAt || null;
+      state.bio = data.bio || null;
+      state.image = data.image || null;
     },
-    reset: (state) => {
+    reset: (state: Todo) => {
       Object.keys(state).forEach((key) => {
         state[key] = null;
       });
@@ -30,12 +32,12 @@ export const user = {
   },
 
   getters: {
-    username: (state) => state,
-    email: (state) => state.email,
-    token: (state) => state.token,
-    createdAt: (state) => state.createdAt,
-    updatedAt: (state) => state.updatedAt,
-    bio: (state) => state.bio,
-    image: (state) => state.image,
+    username: (state: Todo) => state.username,
+    email: (state: Todo) => state.email,
+    token: (state: Todo) => state.token,
+    createdAt: (state: Todo) => state.createdAt,
+    updatedAt: (state: Todo) => state.updatedAt,
+    bio: (state: Todo) => state.bio,
+    image: (state: Todo) => state.image,
   },
 };
